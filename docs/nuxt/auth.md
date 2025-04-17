@@ -25,12 +25,12 @@ const user = useCurrentUser()
 </script>
 ```
 
-You can also await for the user to be ready in route middleware and other async functions with `getCurrentUser()`. For example, you can create a custom route middleware that only allows authenticated users to access a route:
+You can also await for the user to be ready in route middleware and other async functions with `useCurrentUser()`. For example, you can create a custom route middleware that only allows authenticated users to access a route:
 
 ```ts
 // middleware/auth.ts
 export default defineNuxtRouteMiddleware(async (to, from) => {
-  const user = await getCurrentUser()
+  const user = await useCurrentUser()
 
   // redirect the user to the login page
   if (!user) {
